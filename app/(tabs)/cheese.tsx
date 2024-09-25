@@ -4,7 +4,7 @@ import { Link } from "expo-router";
 export default function Page() {
     return (
         <View>
-            <Link href="/sandwhich">Sandwhich</Link>
+            <Link href="/sandwhich" className="bg-red-500 flex-1 text-center">Sandwhich</Link>
         </View>
     )
 }
