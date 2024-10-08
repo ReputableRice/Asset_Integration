@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Page() {
-    const DATA_URL = "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json";
+    const DATA_URL = "https://pokeapi.co/api/v2/pokemon/ditto";
     const [data, setData] = useState(null);
 
     async function fetchData() {
@@ -17,9 +17,9 @@ export default function Page() {
     const DisplayProducts = () => {
         if (data) {
 
-            const productList = [];
+            const productsList = [];
             data.forEach((product, index) => {
-                productList.push(
+                productsList.push(
                     <li key={index}>{product.name}</li>
                 )
             });
@@ -27,7 +27,7 @@ export default function Page() {
             return (
                 <div className="border-4 border-black p-4 mb-4">
                     <ul >
-                        {productList}
+                        {productsList}
                     </ul>
                 </div>
             )
