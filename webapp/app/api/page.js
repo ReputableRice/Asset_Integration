@@ -6,13 +6,19 @@ import { useState } from "react";
 export default function Page() {
     const DATA_URL = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=5";
     const [data, setData] = useState(null);
+    const [errorDisplay, setErrorDisplay] = useState(null)
 
     async function fetchData() {
-        const response = await fetch(DATA_URL);
-        console.log(response);
-        const data = await response.json()
-        setData(data)
-
+        try {
+            const response = await fetch(DATA_URL);
+            console.log(response);
+            const data = await response.json()
+            setData(data)
+        } catch (error) {
+            console.log(error)
+            console.log("error message")
+            setErrorDisplay(<p>Error Message!</p>)
+        }
         //add try catch function here
     }
 
@@ -26,13 +32,14 @@ export default function Page() {
 
                 mediaList.push(
                     <li key={index} className="w-3/4 m-auto">
-                        <img className="rounded-lg m-auto mb-5 mt-10" src={media.url}/>
-                        <h3 className="font-bold">{media.title}</h3>
+                        <img className="rounded-lg m-auto mb-5 mt-10" src={media.url} />
+                        <h2 className="font-bold">{media.title}</h2>
+                        <p>{media.date}</p>
                         <p>{media.explanation}</p>
                     </li>
                 )
             });
-            
+
             return (
                 <div className="">
                     <ul >
@@ -57,11 +64,12 @@ export default function Page() {
                 <h1>Welcome to my Images Page</h1>
                 <button
                     className="border-neutral-200 bg-white bh-black px-6 rounded-md"
-                onClick={() => fetchData()}
+                    onClick={() => fetchData()}
                 >Fetch Images</button>
             </header>
             Welcome to my API Page
             <DisplayMedia />
+            {errorDisplay}
         </div>
     );
 }
