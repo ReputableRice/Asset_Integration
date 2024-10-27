@@ -27,9 +27,6 @@ export default function Page() {
 
             const mediaList = [];
             data.forEach((media, index) => {
-
-
-
                 mediaList.push(
                     <li key={index} className="w-3/4 m-auto">
                         <img className="rounded-lg m-auto mb-5 mt-10" src={media.url} />
