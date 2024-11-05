@@ -71,3 +71,22 @@ export default function Page() {
     );
 }
 
+// "https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15"
+//   const DisplayData = () => {
+//     if (data && data.length > 0) {
+//       return (
+//         <div>
+//           {data.filter((game, index) => index < 5).map((game, index) => (
+//             <div key={index} className="mb-4 p-2 border-b-2">
+//               <h2 className="font-bold">{game.title}</h2>
+//               <p>Sale Price: ${game.salePrice}</p>
+//               <p>Normal Price: ${game.normalPrice}</p>
+//               <img src={game.thumb}/>
+//             </div>
+//           ))}
+//         </div>
+//       );
+//     }
+//     return <div>Empty, No Data Fetched.</div>;
+//   };
+
